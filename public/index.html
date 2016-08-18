@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="owmApp" ng-controller="owmCtrl">
+<head>
+    <title> One Week Meals </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+    <!--<script src="bower_components\angular-modal-service\dst\angular-modal-service.min.js"></script>  -->
+    <script src="javascripts/controllers/OWM.js"></script>
+    <script src="javascripts/filters/customFilters.js"></script>
+    <script src="javascripts/controllers/recipeListControllers.js"></script>
+    <script src="components/cart/cart.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="javascripts/controllers/shoppingListController.js"></script>
+
+</head>
+<body ng-controller="recipeListCtrl">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" ng-click="resetView(); selectPage(1)" >One Week Meals</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li ng-repeat="category in categories" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{category.parent}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="childCategory in category.children"><a ng-click="selectCategory(childCategory)" href="#">{{childCategory}}</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Szukaj" ng-model="searchedRecipe">
+          </div>
+      </form>
+      <ingredients-summary>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="alert alert-danger" ng-show="model.error">
+    Błąd ({{model.error.status}}). Dane przepisu nie zostały wczytane.
+    <a href="/index.html" class="alert-link">Spróbuj ponownie</a>
+  </div>
+  <ng-view> 
+</body>
+</html>
