@@ -27,7 +27,7 @@ angular.module("owmApp")
                             ? (result[ingredient.product] + ingredient.amount)*product.count
                             : result[ingredient.product] = ingredient.amount*product.count; 
                    }else{
-                       result[ingredient] = parseInt(ingredient)
+                       result[ingredient] = parseInt(ingredient) * product.count
                    }
                });
             }, {})
