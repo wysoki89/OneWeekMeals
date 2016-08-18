@@ -15,11 +15,12 @@ var recipeSchema = new Schema ({
     ingredients: Array,
     preparation: String,
     tags: Array 
-},{collection : 'recipes'});
+}, {collection : 'recipes'});
+
 var Recipe = mongoose.model('Recipe', recipeSchema);
 module.exports = Recipe;
 
-mongoose.connect(`mongodb://${config.database.login}:${config.database.password}${config.database.url}${config.database.dbname}`
+mongoose.connect(`mongodb://${config.database.login}:${config.database.password}${config.database.url}/${config.database.dbname}`
 , (err, database) => {
     if(err){
         return console.log(err)
@@ -28,12 +29,12 @@ mongoose.connect(`mongodb://${config.database.login}:${config.database.password}
     app.listen(8000, function(){
         console.log("server is running on port 8000");
     })
+    
     // get all the Results
     Recipe.find({}, function(err, recipes) {
         if (err) throw err;
-
-    // object of all the results
-    console.log(recipes);
+        // object of all the results
+        console.log(recipes);
     });
 })
 
