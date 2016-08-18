@@ -1,7 +1,8 @@
 angular.module("owmApp")
     .constant('recipeListActiveClass', "btn-primary")
     .constant("recipeListPageCount", 3)
-    .controller('recipeListCtrl', function ($scope, recipeListActiveClass, recipeListPageCount, cart){
+    .controller('recipeListCtrl', function ($scope, recipeListActiveClass, recipeListPageCount, cart, recipesService){
+
         var selectedCategory = null;
         $scope.selectedPage = 1;
         $scope.pageSize = recipeListPageCount;

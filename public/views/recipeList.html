@@ -30,9 +30,9 @@
                 </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="ingredient in ingredients()">
-                <td>{{ingredient.amount}}</td>
-                <td>{{ingredient.product}}</td>
+              <tr ng-repeat="(name, count) in ingredients() track by $index">
+                <td>{{count}}</td>
+                <td>{{name}}</td>
               </tr>
             </tbody>
           </table>
