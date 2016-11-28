@@ -1,21 +1,43 @@
-var model = {
-    recipes: [],
-}
+var model = {}
 
-var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute"])
+var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMaterial", "ngMessages", "datePicker"])
 .config(function($routeProvider){
     $routeProvider.when("/recipes/:param", {
         templateUrl: "/views/recipes/:param.html"
     });
-
     $routeProvider.when("/recipes", {
         templateUrl: "/views/recipeList.html"
     });
-
+    $routeProvider.when("/checkout", {
+        templateUrl: "/views/checkoutSummary.html"
+    });
+    $routeProvider.when("/ingredients", {
+        templateUrl: "/views/ingredientsSummary.html"
+    });
+    $routeProvider.when("/ingredientsListSent", {
+        templateUrl: "/views/ingredientsListSent.html"
+    });
+    $routeProvider.when("/placeOrder", {
+        templateUrl: "/views/placeOrder.html"
+    });
+    $routeProvider.when("/orderCompleted", {
+        templateUrl: "/views/orderCompleted.html"
+    });
+    $routeProvider.when("/login", {
+        templateUrl: "/views/auth/login/login.html",
+        controller: 'loginCtrl'
+    });
+    $routeProvider.when("/adminLogin", {
+        templateUrl: "/views/adminLogin.html"
+    });
+    $routeProvider.when("/register1", {
+        templateUrl: "/views/register1.html"
+    });
     $routeProvider.otherwise({
-        templateUrl: "/views/recipeList.html"
+        redirectTo: "/recipes"
     })
 })
+
 .run(function($http){
     $http.get("/getRecipes")
         .success(function(data){

@@ -6,18 +6,33 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="bower_components/angular-datepicker.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <!--external-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
-    <!--<script src="bower_components\angular-modal-service\dst\angular-modal-service.min.js"></script>  -->
-    <script src="javascripts/controllers/OWM.js"></script>
-    <script src="javascripts/filters/customFilters.js"></script>
-    <script src="javascripts/controllers/recipeListControllers.js"></script>
-    <script src="components/cart/cart.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
-    <script src="javascripts/controllers/shoppingListController.js"></script>
-
+    <script src="bower_components/angular-datepicker.min.js"></script>
+    <script src="bower_components/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <!--controllers-->
+    <script src="javascripts/controllers/OWM.js"></script>
+    <script src="javascripts/controllers/recipeListController.js"></script>
+    <script src="javascripts/controllers/checkoutController.js"></script>
+    <script src="javascripts/controllers/ingredientsController.js"></script>
+    <script src="javascripts/controllers/auth/loginController.js"></script>
+    <!--filters-->
+    <script src="javascripts/filters/customFilters.js"></script>
+    <!--components-->
+    <script src="components/cart/cart.js"></script>
+    <!--services-->
+    <script src="javascripts/services/authService.js"></script>
 </head>
 <body ng-controller="recipeListCtrl">
   <nav class="navbar navbar-inverse">
@@ -47,14 +62,15 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Szukaj" ng-model="searchedRecipe">
           </div>
-      </form>
-      <ingredients-summary>
+        </form>
+        <a class="btn btn-default navbar-btn navbar-right" href="#/login" >Dodaj przepis</a>
+        <cart-summary>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
   <div class="alert alert-danger" ng-show="model.error">
-    Błąd ({{model.error.status}}). Dane przepisu nie zostały wczytane.
+    Błąd. Dane przepisu nie zostały wczytane.
     <a href="/index.html" class="alert-link">Spróbuj ponownie</a>
   </div>
   <ng-view> 

@@ -1,0 +1,9 @@
+<div class="alert alert-danger" ng-show="emailSendingError">
+    Błąd {{emailSendingError.status}}. Lista nie została wysłana.
+    <a href="#/ingredients" class="alert-link"> Spróbuj ponownie </a>
+</div>
+
+<div class="well" ng-hide="emailSendingError">
+    <h3 class="text-center">Dziękujemy! Twoja lista zakupów została wysłana</h3>
+</div>
+    <a href="#/recipes" class="pull-left btn btn-primary">Strona główna</a>

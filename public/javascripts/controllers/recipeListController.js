@@ -1,7 +1,8 @@
 angular.module("owmApp")
     .constant('recipeListActiveClass', "btn-primary")
-    .constant("recipeListPageCount", 3)
-    .controller('recipeListCtrl', function ($scope, recipeListActiveClass, recipeListPageCount, cart){
+    .constant("recipeListPageCount", 4)
+    .controller('recipeListCtrl', function ($scope, recipeListActiveClass, recipeListPageCount, cart, ingredients){
+        
         var selectedCategory = null;
         $scope.selectedPage = 1;
         $scope.pageSize = recipeListPageCount;
@@ -14,7 +15,7 @@ angular.module("owmApp")
         }
         $scope.categoryFilterfn = function(recipe){
                 if (selectedCategory === null){
-                    return recipe
+                    return recipe;
                 }
                 if (recipe.tags.indexOf(selectedCategory)>=0){
                     return recipe;
@@ -29,7 +30,11 @@ angular.module("owmApp")
         $scope.showFullRecipe = function(recipeName){
             var url = `views/${recipeName}.html`;
         }
-        $scope.addRecipeToCart = function(recipe){
+        $scope.addRecipe = function(recipe){
             cart.addProduct(recipe);
+            ingredients.addIngredient(recipe);
+        }
+        $scope.remove = function(id){
+            cart.removeProduct(id)
         }
     })

@@ -1,0 +1,27 @@
+<div class="well col-xs-5 col-xs-offset-3">
+        <form class="pure-form pure-form-aligned" name="loginForm" ng-submit="loginForm.$valid && login()" novalidate required>
+            <fieldset>
+                <div class="pure-control-group ">
+                    <label>email</label>
+                    <input type="email" name="email" ng-model="username" required>
+                    <div class="formWarningMessage" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty">
+                        <p ng-message="required">Podaj email</p>
+                        <p ng-message="email">Podaj prawidłowy email</p>
+                    </div>
+                </div>
+                <div class="pure-control-group">
+                    <label>hasło</label>
+                    <input type="text" name="password" ng-model="password" ng-minlength="4" ng-maxlength="8" required>
+                    <div class="formWarningMessage" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty">
+                        <p ng-message="required">Podaj hasło</p>
+                        <p ng-message="minlength, maxlength">Podaj od 4 do 10 znaków</p>
+                    </div>
+                </div>
+                <div>
+                  <button style="margin:15px" type="submit" class ="btn btn-primary pull-left" ng-disabled="loginForm.$invalid">Zaloguj się</button>
+                  <a style="margin:15px 30px 0 0; display:block-inline" href="#/registerChoice" class="btn btn-primary pull-right">Zarejestruj się</a>
+                  <!--<button style="margin:15px 30px 0 0; display:block-inline" class ="btn btn-primary pull-right">Zarejestruj się</button>-->
+                </div>
+          </fieldset>    
+    </form>
+</div>

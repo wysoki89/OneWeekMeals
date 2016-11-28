@@ -1,0 +1,9 @@
+<div class="alert alert-danger" ng-show="orderError">
+    Błąd {{orderError.status}}. Zamówienie nie została wysłana.
+    <a href="#/placeOrder" class="alert-link"> Spróbuj ponownie </a>
+</div>
+
+<div class="well" ng-hide="orderError">
+    <h3 class="text-center">Dziękujemy! Twoje zamówienie jest kompletowane</h3>
+</div>
+    <a href="#/recipes" class="pull-left btn btn-primary">Strona główna</a>

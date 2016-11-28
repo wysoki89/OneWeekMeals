@@ -1,3 +1,9 @@
 #recipes img {width:100%}
-#recipes div {height:200px}
 #daysPanel {display: flex !important; justify-content: center !important;}
+#ingredientsTable td {text-align:center;vertical-align: middle; font-size: 18px}
+#ingredientsTable th {text-align:center;}
+.form-group input.ng-dirty.ng-invalid {
+  border-color: red;
+  display: inline-block
+}
+.formWarningMessage {display: inline-block; color:red; font-size: 90%; margin-left: 0.5em;}

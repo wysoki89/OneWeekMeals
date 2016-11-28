@@ -3,7 +3,7 @@ var config = {
     database: {
         login:   'YOUR_LOGIN',
         password:   'YOUR_PASSWORD',
-        url: '@dsXXXXXX.mlab.com:XXXXX/',
+        url: '@dsXXXXXX.mlab.com:XXXXX',
         dbname: 'DB_NAME'
     }
 }
