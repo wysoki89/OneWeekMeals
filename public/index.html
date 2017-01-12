@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="owmApp" ng-controller="owmCtrl">
+<html ng-app="owmApp">
 <head>
     <title> One Week Meals </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,55 +21,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
     <!--controllers-->
-    <script src="javascripts/controllers/OWM.js"></script>
-    <script src="javascripts/controllers/recipeListController.js"></script>
-    <script src="javascripts/controllers/checkoutController.js"></script>
-    <script src="javascripts/controllers/ingredientsController.js"></script>
-    <script src="javascripts/controllers/auth/loginController.js"></script>
+    <script src="main.js"></script>
+    <script src="recipes/recipeList.controller.js"></script>
+    <script src="checkout/checkout.controller.js"></script>
+    <script src="ingredients/ingredients.controller.js"></script>
+    <script src="auth/login/login.controller.js"></script>
+    <script src="auth/register/register.controller.js"></script>
     <!--filters-->
-    <script src="javascripts/filters/customFilters.js"></script>
+    <script src="common/filters/customFilters.js"></script>
     <!--components-->
-    <script src="components/cart/cart.js"></script>
+    <script src="cart/cart.js"></script>
+    <script src="common/directives/navigation/navigation.directive.js"></script>
+    <script src="common/directives/navigation/navigation.controller.js"></script>
     <!--services-->
-    <script src="javascripts/services/authService.js"></script>
+    <script src="common/services/authentication.service.js"></script>
+    <script src="common/services/recipe.service.js"></script>
 </head>
 <body ng-controller="recipeListCtrl">
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#" ng-click="resetView(); selectPage(1)" >One Week Meals</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li ng-repeat="category in categories" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{category.parent}}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li ng-repeat="childCategory in category.children"><a ng-click="selectCategory(childCategory)" href="#">{{childCategory}}</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Szukaj" ng-model="searchedRecipe">
-          </div>
-        </form>
-        <a class="btn btn-default navbar-btn navbar-right" href="#/login" >Dodaj przepis</a>
-        <cart-summary>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-  <div class="alert alert-danger" ng-show="model.error">
+    <div class="alert alert-danger" ng-show="model.error">
     Błąd. Dane przepisu nie zostały wczytane.
     <a href="/index.html" class="alert-link">Spróbuj ponownie</a>
   </div>
