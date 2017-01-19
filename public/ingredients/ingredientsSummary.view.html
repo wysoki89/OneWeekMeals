@@ -33,7 +33,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr ng-repeat="ingredient in vm.ingredientsData | orderBy:'product'">
+              <tr ng-repeat="ingredient in vm.ingredientsData | orderBy:'product'" ng-class="{'odd': $odd}">
               <td>{{ingredient.product}}</td>
               <td>{{ingredient.amount}}</td>
               <td><button ng-click="vm.removeIngredient(ingredient.product)" class="btn btn-sm btn-danger">X</button></td>

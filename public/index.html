@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/css/style.css">
     <link rel="stylesheet" href="bower_components/angular-datepicker.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -32,12 +32,14 @@
     <!--filters-->
     <script src="common/filters/customFilters.js"></script>
     <!--components-->
-    <script src="cart/cart.js"></script>
+    <script src="cart/cart.directive.js"></script>
     <script src="common/directives/navigation/navigation.directive.js"></script>
     <script src="common/directives/navigation/navigation.controller.js"></script>
     <!--services-->
     <script src="common/services/authentication.service.js"></script>
     <script src="common/services/recipe.service.js"></script>
+    <script src="common/services/ingredients.service.js"></script>
+    <script src="common/services/cart.service.js"></script>
 </head>
 <body ng-controller="recipeListCtrl">
     <div class="alert alert-danger" ng-show="model.error">

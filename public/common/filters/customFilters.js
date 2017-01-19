@@ -14,19 +14,19 @@ angular.module('customFilters', [])
                 return data;
             }
             
-        }
+        };
     })
     .filter("pageCount", function(){
         return function(data, size){
             if(angular.isArray(data)){
                 var results = [];
                 for (var i = 0; i < Math.ceil(data.length/size); i++){
-                    results.push(i)
+                    results.push(i);
                 }
-                return results
+                return results;
             }
             else{
                 return data;
             }
-        }
-    })
+        };
+    });

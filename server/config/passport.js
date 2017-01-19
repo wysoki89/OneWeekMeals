@@ -30,7 +30,7 @@ passport.use('login', new LocalStrategy({
 ));
 
 passport.use('register', new LocalStrategy({
-    usernameField: 'email'
+    usernameField: 'email',
   },
   function(username, password, done) {
       // findOrCreateUser = function(){
@@ -51,7 +51,7 @@ passport.use('register', new LocalStrategy({
           // create the user
           var newUser = new User();
           // set the user's local credentials
-          newUser.username = username;
+          newUser.email = username;
           newUser.setPassword(password);
           // save the user
           newUser.save(function(err) {

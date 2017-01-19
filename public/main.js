@@ -8,12 +8,12 @@ var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMa
     });
     $routeProvider.when("/checkout", {
         templateUrl: "/checkout/checkoutSummary.view.html",
-        controller: 'cartSummaryController',
+        controller: 'checkoutCtrl',
         controllerAs: 'vm'
     });
     $routeProvider.when("/ingredients", {
         templateUrl: "/ingredients/ingredientsSummary.view.html",
-        controller: 'ingredientsController',
+        controller: 'ingredientsCtrl',
         controllerAs: 'vm'
     });
     $routeProvider.when("/ingredientsListSent", {
@@ -21,7 +21,7 @@ var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMa
     });
     $routeProvider.when("/placeOrder", {
         templateUrl: "/ingredients/placeOrder.view.html",
-        controller: 'ingredientsController',
+        controller: 'ingredientsCtrl',
         controllerAs: 'vm'
     });
     $routeProvider.when("/orderCompleted", {
@@ -54,5 +54,5 @@ var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMa
     });
     $routeProvider.otherwise({
         redirectTo: "/recipes"
-    })
-})
+    });
+});

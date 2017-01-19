@@ -7,8 +7,6 @@ var expressSession = require('express-session');
 var mongoStore = require('connect-mongo')({session: expressSession});
 var mongoose = require('mongoose');
 var passport = require('passport');
-// displaying messages to user on authentication
-var flash = require('connect-flash');
 // encrypting password 
 var bCrypt = require('bcrypt-nodejs');
 // require routes
@@ -27,8 +25,6 @@ require('./config/passport');
 app.use(passport.initialize());
 //  passport session - loads an object passport.user onto req.user if a serialized userb object was found
 // app.use(passport.session());
-// display flash messages stored in session
-// app.use(flash()); 
 // routes
 app.use('/', routes);
 // mongoose

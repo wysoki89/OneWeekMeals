@@ -6,11 +6,11 @@ function loginCtrl(authentication, $location){
     vm.credentials = {
         email: "",
         password: ""
-    }
+    };
     vm.login = function(){
         authentication.login(vm.credentials)
         .then(function(){
             $location.path('recipes');
-        })
+        });
     };
-};
+}

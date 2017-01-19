@@ -1,10 +1,10 @@
 angular.module("owmApp")
-.controller("cartSummaryController", cartSummaryController);
-cartSummaryController.$inject = ['cart']
-function cartSummaryController(cart){
+.controller("checkoutCtrl", checkoutCtrl);
+checkoutCtrl.$inject = ['cartService'];
+function checkoutCtrl(cartService){
         var vm = this;
-        vm.cartData = cart.getProducts();
+        vm.cartData = cartService.getProducts();
         vm.remove = function(id){
-            cart.removeProduct(id)
-        }
+            cartService.removeProduct(id);
+        };
 }

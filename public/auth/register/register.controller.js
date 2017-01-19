@@ -6,11 +6,8 @@ function registerCtrl(authentication, $location){
        vm.credentials = {
            email: "",
            password: ""
-       }
+       };
        vm.register = function(){
            authentication.register(vm.credentials)
-           .then(function(){
-            $location.path('newUserRegistered');
-        })
-    }
+        };
 }

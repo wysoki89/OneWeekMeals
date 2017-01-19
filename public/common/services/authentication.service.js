@@ -47,9 +47,11 @@ angular.module("owmApp")
         })
         .then(function(response){
             saveToken(response.data.token);
+            $location.path('newUserRegistered');
         }, function(error){
-            console.log(error)
-         })
+            $location.path('registerUser');
+            console.log(error);
+         });
     };
     this.login = function(user){
         return $http({
@@ -61,10 +63,11 @@ angular.module("owmApp")
         .then(function(response){
             saveToken(response.data.token);
         }, function(error){
-            console.log(error)
-         })
+            console.log(error);
+            
+         });
     };
     this.logout = function() {
       $window.sessionStorage.removeItem('owm-token');
     };
-})
+});
