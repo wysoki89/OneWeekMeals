@@ -4,4 +4,5 @@ angular.module("owmApp").factory('Recipe', function ($resource){
 angular.module("owmApp")
 .service('recipesState', function () {
     this.selectedCategory = null;
+    this.selectedRecipe = null;
 });

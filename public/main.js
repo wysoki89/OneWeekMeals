@@ -6,6 +6,9 @@ var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMa
     $routeProvider.when("/recipes", {
         templateUrl: "/recipes/recipeList.view.html",
     });
+    $routeProvider.when("/recipeDetails", {
+        templateUrl: "/recipes/recipeDetails.view.html",
+    });
     $routeProvider.when("/checkout", {
         templateUrl: "/checkout/checkoutSummary.view.html",
         controller: 'checkoutCtrl',

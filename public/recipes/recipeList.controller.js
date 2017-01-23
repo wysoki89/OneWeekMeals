@@ -6,6 +6,7 @@ recipeListCtrl.$inject = ['recipeListActiveClass', 'recipeListPageCount', 'cartS
 function recipeListCtrl(recipeListActiveClass, recipeListPageCount, cartService, ingredientsService, $scope, Recipe, recipesState){
         $scope.days = ["Poniedziałek","Wtorek", "Środa", "Czwartek", "Piątek"];
         $scope.recipes = Recipe.query();
+        $scope.selectedRecipe = recipesState.selectedRecipe;
         $scope.selectedPage = 1;
         $scope.pageSize = recipeListPageCount;
         $scope.selectPage = function(newPage){
@@ -28,13 +29,6 @@ function recipeListCtrl(recipeListActiveClass, recipeListPageCount, cartService,
         };
         $scope.resetView = function(){
             recipesState.selectedCategory = null;
-        };
-        $scope.showFullRecipe = function(recipeName){
-            var url = `views/${recipeName}.html`;
-        };
-        $scope.addRecipe = function(recipe){
-            cartService.addProduct(recipe);
-            ingredientsService.addIngredient(recipe);
         };
         $scope.remove = function(id){
             cartService.removeProduct(id);
