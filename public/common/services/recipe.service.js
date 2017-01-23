@@ -1,5 +1,5 @@
 angular.module("owmApp").factory('Recipe', function ($resource){
-    return $resource('/api/recipes/:id');    
+    return $resource('/recipes/:id');    
 });
 angular.module("owmApp")
 .service('recipesState', function () {

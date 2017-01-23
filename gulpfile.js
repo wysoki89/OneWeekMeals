@@ -2,7 +2,21 @@
 var gulp  = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
+    mocha = require('gulp-mocha'),
     sass = require('gulp-sass');
+
+const TEST_FILES = [
+  `server/test/index.js`,
+  `server/**/*.spec.js`
+];
+
+gulp.task('mocha', function() {
+  return gulp
+    .src(TEST_FILES, {read: false})
+    .pipe(mocha({ growl: 'true', timeout: 6000 }, {reporter: 'spec'}))
+    .once('error', () => process.exit(1))
+    .once('end', () => process.exit(0));
+});
 
 // define the default task and add the watch task to it
 gulp.task('default', ['watch']);

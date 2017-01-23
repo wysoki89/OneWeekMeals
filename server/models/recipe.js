@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
 var recipeSchema = new Schema ({
@@ -9,4 +8,4 @@ var recipeSchema = new Schema ({
     tags: Array 
 }, {collection : 'recipes'});
 
-module.exports = mongoose.model('recipes', recipeSchema);
+mongoose.model('recipes', recipeSchema);

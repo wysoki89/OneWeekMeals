@@ -5,39 +5,12 @@ var passport = require('passport');
 var config = require('./../config');
 var mailer = require("nodemailer");
 // models
-var Recipe = require('../models/recipe.js');
 var Order = require('../models/order.js');
 var User = require('../models/user.js');
 
 var ctrlAuth = require('../controllers/authentication');
 
-router.post('/api/recipes', (req,res)=>{
-    var newRecipe = Recipe({
-        name: req.body.name,
-        ingredients: req.body.ingredients,
-        preparation: req.body.preparation,
-        tags: req.body.tags
-    })
-    console.log(req.body)
-    // save the task
-    newRecipe.save(function(err) {
-    if (err){
-        return console.log(err);
-    }
-    console.log("saved to database");
-    res.redirect('/')
-    });
-})
-
-router.get('/api/recipes', (req, res)=>{
-  return Recipe.find({}, function(err, recipes) {
-        if (!err) {
-            return res.send(recipes);
-        } else {
-            return console.log(err);
-        }
-    })
-})
+router.use('/recipes', require('./recipes.js'))
 
 router.post('/sendIngredientList',function(req,res){
     // Use Smtp Protocol to send Email
@@ -88,6 +61,7 @@ router.post('/orderIngredients', function(req,res){
         res.end("saved");
     });
 })
+
 router.post('/register',ctrlAuth.register);
 router.post('/login',ctrlAuth.login);
 

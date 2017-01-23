@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var Recipe = mongoose.model('recipes');
 
 router
-
   .post('/', (req, res) => {
     var newRecipe = new Recipe({
       name: req.body.name,

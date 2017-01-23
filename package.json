@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "dev": "nodemon app.js",
+    "test": "NODE_ENV=test gulp mocha"
   },
   "dependencies": {
     "angular-bootstrap-calendar": "^0.26.0",
@@ -36,12 +37,14 @@
     "graceful": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.4",
+    "gulp-mocha": "^3.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.8",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "minimatch": "^3.0.3",
     "mocha": "^3.2.0",
-    "node-sass": "^4.3.0"
+    "node-sass": "^4.3.0",
+    "supertest": "^2.0.1"
   }
 }
