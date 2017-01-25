@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
+
 var orderSchema = new Schema ({
     name: String,
     surname: String,
@@ -13,4 +13,4 @@ var orderSchema = new Schema ({
     ingredients: Array 
 }, {collection : 'orders'});
 
-module.exports = mongoose.model('orders', orderSchema);
+mongoose.model('orders', orderSchema);

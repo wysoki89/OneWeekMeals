@@ -6,7 +6,7 @@ angular.module("owmApp")
             _.each(recipe.ingredients, ingredient=> { 
 			      var isNew = true;
                   _.each(ingredients, function(result){
-                    if(result.product === ingredient.product){
+                    if(result.name === ingredient.name){
 				        result.amount += ingredient.amount;
                         isNew = false;
                     }
@@ -18,7 +18,7 @@ angular.module("owmApp")
     };
     this.removeIngredient = function(name){
             _.each(ingredients, (item,index) =>{
-                if(name === item.product){
+                if(name === item.name){
                     ingredients.splice(index,1);
                 }
             });

@@ -15,7 +15,7 @@ function ingredientsCtrl($http, $httpParamSerializerJQLike, ingredientsService, 
                     _.each(vm.ingredientsData, ingredient=> {
                         var tr = document.createElement("tr");
                         var td = document.createElement("td");
-                        td.appendChild(document.createTextNode(ingredient.product));
+                        td.appendChild(document.createTextNode(ingredient.name));
                         tr.appendChild(td);
                         td.appendChild(document.createTextNode(ingredient.amount));
                         tr.appendChild(td);
@@ -25,17 +25,16 @@ function ingredientsCtrl($http, $httpParamSerializerJQLike, ingredientsService, 
                 };
                 $http({
                     method: 'POST',
-                    url: '/sendIngredientList',
-                    data: $httpParamSerializerJQLike({to:recipient, list: vm.ingredientsData, emailBody:emailBody()}),
+                    url: '/emailIngredientList',
+                    data: $httpParamSerializerJQLike({to:recipient, emailBody:emailBody()}),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(function(response){
                     cartService.getProducts().length = 0;
                     ingredientsService.getIngredients().length = 0;
-                }, function(error){
-                    vm.emailSendingError = error;
-                 }).finally(function(){
                     $location.path("/ingredientsListSent");
-                 });
+                }, function(error){
+                    vm.emailSendingError = error; 
+                 })
             };
             vm.orderIngredients = function(shippingDetails){
                 var data = {};

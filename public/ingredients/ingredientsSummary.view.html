@@ -33,10 +33,10 @@
               </tr>
           </thead>
           <tbody>
-              <tr ng-repeat="ingredient in vm.ingredientsData | orderBy:'product'" ng-class="{'odd': $odd}">
-              <td>{{ingredient.product}}</td>
+              <tr ng-repeat="ingredient in vm.ingredientsData | orderBy:'name'" ng-class="{'odd': $odd}">
+              <td>{{ingredient.name}}</td>
               <td>{{ingredient.amount}}</td>
-              <td><button ng-click="vm.removeIngredient(ingredient.product)" class="btn btn-sm btn-danger">X</button></td>
+              <td><button ng-click="vm.removeIngredient(ingredient.name)" class="btn btn-sm btn-danger">X</button></td>
             </tr>
           </tbody>
         </table>

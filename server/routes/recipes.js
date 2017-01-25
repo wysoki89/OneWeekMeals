@@ -5,30 +5,31 @@ var mongoose = require('mongoose');
 var Recipe = mongoose.model('recipes');
 
 router
-  .post('/', (req, res) => {
+  .post('/', function (req, res) {
     var newRecipe = new Recipe({
       name: req.body.name,
       ingredients: req.body.ingredients,
-      preparation: req.body.preparation,
-      tags: req.body.tags
+      preparation: req.body.preparation, 
+      tags: req.body.tags 
     })
-    console.log(req.body)
+
+
+    // console.log(req.body, req.query)
     // save the task
     newRecipe.save(function (err, doc) {
       if (err) {
         return res.send("something is wrong")
       }
-      console.log("saved to database");
-      res.redirect('/');
+      res.send(doc);
     });
   })
 
-  .get('/', (req, res) => {
-    return Recipe.find({}, function (err, recipes) {
+  .get('/', function (req, res) {
+    Recipe.find({}, function (err, recipes) {
       if (!err) {
         return res.send(recipes);
       } else {
-        return console.log(err);
+        return res.send(err);
       }
     })
   })

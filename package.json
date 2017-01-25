@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon app.js",
-    "test": "NODE_ENV=test gulp mocha"
+    "dev": "nodemon server/www.js",
+    "test": "NODE_ENV=test PORT=3100 gulp mocha",
+    "tdd": "NODE_ENV=test PORT=3100 gulp mocha:tdd"
   },
   "dependencies": {
     "angular-bootstrap-calendar": "^0.26.0",
@@ -29,11 +30,13 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
+    "request": "^2.79.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "fs": "0.0.1-security",
     "graceful": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.4",
@@ -45,6 +48,7 @@
     "minimatch": "^3.0.3",
     "mocha": "^3.2.0",
     "node-sass": "^4.3.0",
+    "require-dir": "^0.3.1",
     "supertest": "^2.0.1"
   }
 }
