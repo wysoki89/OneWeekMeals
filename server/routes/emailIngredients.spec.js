@@ -1,6 +1,6 @@
 'use strict';
 
-describe.skip('/POST emailIngredients', () => {
+describe('/POST emailIngredients', () => {
     it('it should not POST a request without email and body', (done) => {
         let email = { to: 'test@test.com', emailBody: 'emailBody' };
         let validateEmail = function (email) {

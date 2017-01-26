@@ -19,7 +19,7 @@ global.should = chai.should;
 
 before((done) => {
     app.set('port', 3100);
-    
+
     app.on('ready', () => done());
     global.api = supertest(app);
 
@@ -31,10 +31,10 @@ before((done) => {
 before((done) => {
     Promise
         // return array of promises and runs function remove on them - clears database 
-        .all(_.map(mongoose.models, Model => Model.remove())) 
+        .all(_.map(mongoose.models, Model => Model.remove()))
         .then(() => done(), done);
 });
 
 after((done) => {
-    server.close(()=>done());
+    server.close(() => done());
 });

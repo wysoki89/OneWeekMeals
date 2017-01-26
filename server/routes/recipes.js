@@ -1,37 +1,35 @@
-var express = require('express');
-var router = express.Router();
-
-var mongoose = require('mongoose');
-var Recipe = mongoose.model('recipes');
+const express = require('express');
+const router = express.Router();
+const co = require('co');
+const mongoose = require('mongoose');
+const Recipe = mongoose.model('recipes');
 
 router
-  .post('/', function (req, res) {
-    var newRecipe = new Recipe({
-      name: req.body.name,
-      ingredients: req.body.ingredients,
-      preparation: req.body.preparation, 
-      tags: req.body.tags 
-    })
+// tj/co lib resolves all promises in yield until some yield returns {done: true}
+//  function * - constructor function - can be exited and later re-entered with saved context across re-entrances.
+  .post('/', co.wrap(function *(req,res,next){
+    try{
+      var newRecipe = new Recipe({
+        name: req.body.name,
+        ingredients: req.body.ingredients,
+        preparation: req.body.preparation, 
+        tags: req.body.tags 
+      })
+      // recipe return solved promise so actual recipe; newRecipe.save itself is a promise.
+      const recipe = yield newRecipe.save();
+      res.send(recipe);
+    } catch(e){
+      next (e)
+    }
+  }))
 
-
-    // console.log(req.body, req.query)
-    // save the task
-    newRecipe.save(function (err, doc) {
-      if (err) {
-        return res.send("something is wrong")
-      }
-      res.send(doc);
-    });
-  })
-
-  .get('/', function (req, res) {
-    Recipe.find({}, function (err, recipes) {
-      if (!err) {
-        return res.send(recipes);
-      } else {
-        return res.send(err);
-      }
-    })
-  })
+  .get('/', co.wrap(function *(req,res,next){
+  try{
+     const recipes = yield Recipe.find();
+     res.send(recipes)
+  } catch(e){
+    next(e)
+  }
+  }))
 
 module.exports = router;
