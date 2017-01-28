@@ -1,8 +1,9 @@
-var passport = require('passport');
+'use strict';
+const passport = require('passport');
 // passport-local enables authentication via username-password after logging in
-var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
-var User = require('../models/user');
+const LocalStrategy = require('passport-local').Strategy;
+const mongoose = require('mongoose');
+const User = require('../models/user');
 
 passport.use('login', new LocalStrategy({
     usernameField: 'email'
@@ -49,7 +50,7 @@ passport.use('register', new LocalStrategy({
         else {
           // if there is no user with that email
           // create the user
-          var newUser = new User();
+          let newUser = new User();
           // set the user's local credentials
           newUser.email = username;
           newUser.setPassword(password);

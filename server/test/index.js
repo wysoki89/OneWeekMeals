@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const _ = require('lodash');
 
 var supertest = require('supertest');
-
-var server;
+ 
+var server; 
 process.env.NODE_ENV = 'test';
 process.env.PORT = 3100;
 
@@ -18,10 +18,8 @@ global.should = chai.should;
 
 before((done) => {
     app.set('port', 3100);
-
     app.on('ready', () => done());
     global.api = supertest(app);
-
     server = app.listen(3100, function (err) {
         if (err) throw err;
     })

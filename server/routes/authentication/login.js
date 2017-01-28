@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -7,7 +8,7 @@ router
   .post('/', function (req, res, next) {
     try {
       passport.authenticate('login', function (err, user, info) {
-        var token;
+        let token;
         // If a user is found
         if (user) {
           token = user.generateJwt();

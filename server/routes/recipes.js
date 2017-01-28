@@ -1,9 +1,10 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
 const co = require('co');
 const mongoose = require('mongoose');
 const Recipe = mongoose.model('recipes');
-
+   
 router
 // tj/co lib resolves all promises in yield until some yield returns {done: true}
 //  function * - constructor function - can be exited and later re-entered with saved context across re-entrances.

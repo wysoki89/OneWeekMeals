@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+const express = require('express');
+const router = express.Router();
 const co = require('co');
 // model
-var mongoose = require('mongoose');
-var Order = mongoose.model('orders');
-
+const mongoose = require('mongoose');
+const Order = mongoose.model('orders');
+ 
 router
     .post('/', co.wrap(function* (req, res, next) {
         try {

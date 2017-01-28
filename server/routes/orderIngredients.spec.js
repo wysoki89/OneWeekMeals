@@ -1,5 +1,7 @@
 'use strict';
-let Order = require('../models/order');
+const mongoose = require('mongoose');
+const Order = mongoose.model('orders');
+
 describe('orders', () => {
   beforeEach((done) => {
     Order.remove({}, (err) => {

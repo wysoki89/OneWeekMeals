@@ -1,4 +1,4 @@
-var config = {
+const config = {
     //mongodb connection settings
     database: {
         login:   'YOUR_LOGIN',

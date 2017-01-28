@@ -1,5 +1,6 @@
 'use strict';
-let Recipe = require('../models/recipe');
+const mongoose = require('mongoose');
+const Recipe = mongoose.model('recipes');
 describe('recipes', () => {
   beforeEach((done) => {
     Recipe.remove({}, (err) => {

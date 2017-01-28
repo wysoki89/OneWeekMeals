@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+'use strict';
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var recipeSchema = new Schema ({
+const recipeSchema = new Schema ({
     name: String,
     ingredients: Array,
     preparation: String,

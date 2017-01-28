@@ -1,16 +1,14 @@
 // dependencies
-var express = require('express');
-var bodyParser = require('body-parser')
-var MongoClient = require('mongodb').MongoClient;
-var config = require('./config');
-var expressSession = require('express-session');
-var mongoStore = require('connect-mongo')({ session: expressSession });
-var mongoose = require('mongoose');
-var passport = require('passport');
-var requireDir = require('require-dir');
-
-var app = express();
-
+const express = require('express');
+const bodyParser = require('body-parser')
+const MongoClient = require('mongodb').MongoClient;
+const config = require('./config');
+const expressSession = require('express-session');
+const mongoStore = require('connect-mongo')({ session: expressSession });
+const mongoose = require('mongoose');
+const passport = require('passport');
+const requireDir = require('require-dir');
+const app = express();
 // mongoose
 mongoose.Promise = global.Promise;
 const env = process.env.NODE_ENV || 'dev';
@@ -19,14 +17,14 @@ const dblink = (env === 'test')
     ? `mongodb://${config.database[env].url}/${config.database[env].dbname}`
     : `mongodb://${config.database[env].login}:${config.database[env].password}${config.database[env].url}/${config.database[env].dbname}`
 
-mongoose.connect(dblink, (err, database) => {
+mongoose.createConnection(dblink, (err, database) => {
     if (err) {
         return console.log(err)
     }
     app.use(express.static('public'));
     // body parser enables to use .body on req and res
     app.use(bodyParser.urlencoded({ extended: true }));
-    var dir = requireDir('./models');
+    const dir = requireDir('./models');
     require('./config/passport'); 
     // Passport config
     // passport initialize - checks if session contains a passport.user object

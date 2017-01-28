@@ -1,5 +1,6 @@
 'use strict';
-let User = require('../../models/user');
+const mongoose  = require('mongoose');
+const User = mongoose.model('users');
 
 describe('/POST register new user', () => {
   before((done) => {
