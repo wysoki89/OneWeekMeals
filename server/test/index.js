@@ -9,7 +9,6 @@ const _ = require('lodash');
 var supertest = require('supertest');
 
 var server;
-
 process.env.NODE_ENV = 'test';
 process.env.PORT = 3100;
 
@@ -38,3 +37,4 @@ before((done) => {
 after((done) => {
     server.close(() => done());
 });
+ 

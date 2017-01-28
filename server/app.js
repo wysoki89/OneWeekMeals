@@ -27,7 +27,7 @@ mongoose.connect(dblink, (err, database) => {
     // body parser enables to use .body on req and res
     app.use(bodyParser.urlencoded({ extended: true }));
     var dir = requireDir('./models');
-    require('./config/passport');
+    require('./config/passport'); 
     // Passport config
     // passport initialize - checks if session contains a passport.user object
     app.use(passport.initialize());
