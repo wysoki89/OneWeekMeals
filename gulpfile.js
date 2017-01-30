@@ -13,7 +13,7 @@ const TEST_FILES = [
 gulp.task('mocha', function () {
   return gulp
     .src(TEST_FILES, { read: false })
-    .pipe(mocha({ growl: 'true', timeout: 6000 }, { reporter: 'spec' }))
+    .pipe(mocha({ growl: 'true', timeout: 3000 }, { reporter: 'spec' }))
     .once('error', () => process.exit(1))
     .once('end', () => process.exit(0));
 });
@@ -25,7 +25,7 @@ function handleError(err) {
 gulp.task('mocha-cont', function () {
   return gulp
     .src(TEST_FILES, { read: false })
-    .pipe(mocha({ growl: 'true', timeout: 6000 }, { reporter: 'spec' }))
+    .pipe(mocha({ growl: 'true', timeout: 3000 }, { reporter: 'spec' }))
     // .once('error', () => null)
     .on("error", handleError)
 });

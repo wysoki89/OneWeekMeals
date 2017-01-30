@@ -1,11 +1,11 @@
 <navigation></navigation>
 <div class="row" ng-hide="model.error" ng-controller="recipeListCtrl">
-        <div class="col-xs-1">
-          <div id="daysPanel" class="well" ng-repeat="day in days">
-            <h6><strong>{{day}}</strong></h6>
-          </div>  
-        </div>
-        <div class="panel panel-default col-xs-9">
-               <img src ="{{selectedRecipe.mainImageUrl}}"></img>
-        </div>
-<div>     
+  <div class="col-xs-1">
+    <div id="daysPanel" class="well" ng-repeat="day in days">
+      <h6><strong>{{day}}</strong></h6>
+    </div>
+  </div>
+  <div class="panel panel-default col-xs-9">
+    <img src="{{selectedRecipe.mainImageUrl}}"></img>
+  </div>
+<div>

@@ -1,15 +1,16 @@
-'use strict';
+'use strict'
 const express = require('express');
 const router = express.Router();
 const co = require('co');
 // model
 const mongoose = require('mongoose');
+
 const Order = mongoose.model('orders');
  
 router
     .post('/', co.wrap(function* (req, res, next) {
         try {
-            var newOrder = new Order({
+            let newOrder = new Order({
                 name: req.body.shippingDetails.name,
                 surname: req.body.shippingDetails.surname,
                 city: req.body.shippingDetails.city,
@@ -21,7 +22,7 @@ router
                 ingredients: req.body.ingredients 
             })
             // // save the task
-            const order = yield newOrder.save();
+            let order = yield newOrder.save();
             res.send(order);
         } catch (e) {
             next(e)

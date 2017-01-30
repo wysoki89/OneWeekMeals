@@ -2,16 +2,10 @@
 const mongoose  = require('mongoose');
 const User = mongoose.model('users');
 
-describe('/POST register new user', () => {
-  before((done) => {
-    User.remove({}, (err) => {
-      done();
-    });
-  });
-  after((done) => {
-    User.remove();
-    return done()
-  });
+describe('/POST register new user', () => { 
+  before(() => User.remove({}));
+  after(() => User.remove({}));
+
   it('it should return a token', (done) => {
     let credentials = { email: 'test@test.com', password: 'pass' };
     api

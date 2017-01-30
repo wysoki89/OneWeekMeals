@@ -17,24 +17,25 @@ const dblink = (env === 'test')
     ? `mongodb://${config.database[env].url}/${config.database[env].dbname}`
     : `mongodb://${config.database[env].login}:${config.database[env].password}${config.database[env].url}/${config.database[env].dbname}`
 
-mongoose.createConnection(dblink, (err, database) => {
-    if (err) {
-        return console.log(err)
-    }
-    app.use(express.static('public'));
-    // body parser enables to use .body on req and res
-    app.use(bodyParser.urlencoded({ extended: true }));
-    const dir = requireDir('./models');
-    require('./config/passport'); 
-    // Passport config
-    // passport initialize - checks if session contains a passport.user object
-    app.use(passport.initialize());
-    //  passport session - loads an object passport.user onto req.user if a serialized userb object was found
-    // app.use(passport.session());
+var dir = requireDir('./models')
 
-    // routes
-    app.use('/', require('./routes/index'));
-    app.emit('ready');
-})
+mongoose
+    .connect(dblink)
+    .then(() => {
+        app.use(express.static('public'));
+        // body parser enables to use .body on req and res
+        app.use(bodyParser.urlencoded({ extended: true }));
+        // Passport config
+        require('./config/passport');
+        // passport initialize - checks if session contains a passport.user object
+        app.use(passport.initialize());
+        // routes
+        app.use('/', require('./routes/index'));
+        app.emit('ready');
+    })
+    .catch(err => {
+        console.log(err);
+        throw err;
+    });
 
 module.exports = app;

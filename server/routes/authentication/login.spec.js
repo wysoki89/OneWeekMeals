@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 const mongoose  = require('mongoose');
 const User = mongoose.model('users');
 
-describe('/POST login', () => {
-  var newUser;
+describe('/POST login', () => { 
+  let newUser;
   before((done) => {
     User.remove({});
     newUser = new User();
@@ -12,17 +12,14 @@ describe('/POST login', () => {
     newUser.save(function (err) {
       if (err) {
         console.log('Error in Saving user: ' + err);
-        return done(err);
+        done(err);
       }
       console.log('User Registration succesful');
-      return done(null, newUser);
-    });;
+      done();
+    }); 
   });
 
-  after((done) => {
-    newUser.remove();
-    return done()
-  })
+  after(() => User.remove({}));
 
   it('user was created and is not null', () => {
     assert.isObject(newUser)
@@ -38,7 +35,7 @@ describe('/POST login', () => {
         assert.isObject(res.body, "token is not an object");
         assert(res.body.hasOwnProperty('token'), "res.body does not have token property");
         assert(typeof res.body.token === 'string', "res.body.token is not a string");
-      })
+      }) 
       .end(done);
   });
 });

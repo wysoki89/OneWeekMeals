@@ -1,16 +1,10 @@
-'use strict';
+'use strict'
 const mongoose = require('mongoose');
 const Order = mongoose.model('orders');
 
-describe('orders', () => {
-  beforeEach((done) => {
-    Order.remove({}, (err) => {
-      done();
-    });
-  });
-})
+describe('/POST orderIngredients', () => { 
+  beforeEach(() => Order.remove({}));
 
-describe('/POST orderIngredients', () => {
   it('it should not POST an order without all details', (done) => {
     let order = {
       shippingDetails: {
@@ -41,7 +35,7 @@ describe('/POST orderIngredients', () => {
         assert.equal(11, res.body.address2, "address2 is not 11");
         assert(typeof res.body.deliveryDate === "string", "deliveryDate is not a string");
         assert(Array.isArray(res.body.ingredients), "ingredients is not array");
-        })
+      })
       .end(done);
   });
 });

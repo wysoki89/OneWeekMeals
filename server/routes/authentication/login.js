@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -6,7 +6,7 @@ const User = require('../../models/user');
 
 router
   .post('/', function (req, res, next) {
-    try {
+    try { 
       passport.authenticate('login', function (err, user, info) {
         let token;
         // If a user is found

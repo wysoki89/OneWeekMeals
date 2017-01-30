@@ -9,4 +9,4 @@ const recipeSchema = new Schema ({
     tags: Array 
 }, {collection : 'recipes'});
 
-mongoose.model('recipes', recipeSchema);
+module.exports = mongoose.model('recipes', recipeSchema);

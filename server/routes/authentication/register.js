@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -10,7 +11,7 @@ router
         try {
             passport.authenticate('register', function (err, newUser, info) {
                 if (newUser) {
-                    var token;
+                    let token;
                     token = newUser.generateJwt();
                     res.status(200);
                     res.json({
