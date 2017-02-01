@@ -36,4 +36,4 @@ userSchema.methods.generateJwt = function() {
   }, config.jwt.secret); // secret is signature for server to verify existing tokens and sign new ones
 };
 
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('user', userSchema);

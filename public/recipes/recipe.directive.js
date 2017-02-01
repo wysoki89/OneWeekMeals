@@ -4,7 +4,7 @@ angular.module('owmApp')
             restrict: 'E',
             templateUrl: 'recipes/recipe.view.html',
             scope: {
-                recipe: '='
+                recipe: '<'
             },
             replace: true,
             controller: function ($scope, cartService, ingredientsService, $location, recipesState) {

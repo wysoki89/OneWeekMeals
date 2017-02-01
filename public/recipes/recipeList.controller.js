@@ -9,7 +9,7 @@ function recipeListCtrl(recipeListActiveClass, recipeListPageCount, cartService,
     $scope.selectedRecipe = recipesState.selectedRecipe;
     $scope.selectedPage = 1;
     $scope.pageSize = recipeListPageCount;
-    /**
+    /** 
      * selects page
      * 
      * @function selectPage

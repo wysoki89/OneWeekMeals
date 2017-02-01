@@ -3,8 +3,8 @@ angular.module('owmApp')
 // inject service with recipes State
 navigationCtrl.$inject = ['recipesState', 'authentication'];
 function navigationCtrl(recipesState, authentication) {
-    var navvm = this;
-    navvm.categories = [
+    var vm = this;
+    vm.categories = [
         { parent: "Posiłki", children: ["Śniadanie", "Obiad", "Kolacja"] },
         { parent: "Składniki", children: ["Jajka", "Mięso", "Makaron"] },
     ];
@@ -13,10 +13,10 @@ function navigationCtrl(recipesState, authentication) {
      * 
      * @function resetView
      */
-    navvm.resetView = function () {
+    vm.resetView = function () {
         recipesState.selectedCategory = null;
     };
-    navvm.isLoggedIn = authentication.isLoggedIn();
-    navvm.currentUser = authentication.currentUser();
-    navvm.logout = authentication.logout();
+    vm.isLoggedIn = authentication.isLoggedIn();
+    vm.currentUser = authentication.currentUser();
+    vm.logout = authentication.logout();
 }

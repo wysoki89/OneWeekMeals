@@ -3,7 +3,7 @@ xdescribe('/POST emailIngredients', () => {
     it('it should not POST a request without email and body', (done) => {
         let email = { to: 'twysokinski@gmail.com', emailBody: 'emailBody' };
         api
-            .post('/emailIngredientList')
+            .post('/email')
             .type('form')
             .send(email)
             .expect(200)

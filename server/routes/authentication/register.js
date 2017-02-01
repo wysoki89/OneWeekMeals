@@ -4,7 +4,6 @@ const router = express.Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = require('../../models/user');
-const co = require('co');
 
 router
     .post('/', function (req, res, next) {

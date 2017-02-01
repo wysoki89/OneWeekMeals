@@ -1,6 +1,6 @@
 'use strict'
 const mongoose = require('mongoose');
-const Order = mongoose.model('orders');
+const Order = mongoose.model('order');
 
 describe('/POST orderIngredients', () => { 
   beforeEach(() => Order.remove({}));
@@ -20,7 +20,7 @@ describe('/POST orderIngredients', () => {
       ingredients: []
     };
     api
-      .post('/orderIngredients/')
+      .post('/order/')
       .type('form')
       .send(order)
       .expect(200)

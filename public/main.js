@@ -1,4 +1,4 @@
-var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMaterial", "ngMessages", "datePicker", "ngResource"])
+var owmApp = angular.module("owmApp", ["customFilters", "cart", "ngRoute", "ngMaterial", "ngMessages", "ngResource"])
     .config(function ($routeProvider) {
         // $routeProvider.when("/recipes/:param", {
         //     templateUrl: "/views/recipes/:param.html"

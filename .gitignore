@@ -1,8 +1,9 @@
 bower_components/
 node_modules/
 public/bower_components
+public/dist
 config.js
 toGetJob.txt
 todo.txt
 db.txt
-npm-debug.log
+*.log

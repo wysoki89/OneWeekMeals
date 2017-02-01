@@ -8,13 +8,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#" ng-click="navvm.resetView(); selectPage(1)" >One Week Meals</a>
+        <a class="navbar-brand" href="#" ng-click="vm.resetView(); selectPage(1)" >One Week Meals</a>
       </div>
 
       <!--categories-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li ng-repeat="category in navvm.categories" class="dropdown">
+          <li ng-repeat="category in vm.categories" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{category.parent}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li ng-repeat="childCategory in category.children"><a ng-click="selectCategory(childCategory)" href="#">{{childCategory}}</a></li>
@@ -28,9 +28,9 @@
           </div>
         </form>
         <!--log in-->
-        <a class="btn btn-default navbar-btn navbar-right" ng-hide="navvm.isLoggedIn" href="#/login" >Logowanie</a>
+        <a class="btn btn-default navbar-btn navbar-right" ng-hide="vm.isLoggedIn" href="#/login" >Logowanie</a>
         <!--log out-->
-        <a class="btn btn-default navbar-btn navbar-right" ng-show="navvm.isLoggedIn" href="#" ng-click="navvm.logout" > Wyloguj</a>
+        <a class="btn btn-default navbar-btn navbar-right" ng-show="vm.isLoggedIn" href="#" ng-click="vm.logout" > Wyloguj</a>
         <!--cart-->
         <cart-summary>
       </div>

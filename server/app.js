@@ -1,10 +1,8 @@
 // dependencies
 const express = require('express');
 const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient;
 const config = require('./config');
 const expressSession = require('express-session');
-const mongoStore = require('connect-mongo')({ session: expressSession });
 const mongoose = require('mongoose');
 const passport = require('passport');
 const requireDir = require('require-dir');
@@ -30,7 +28,7 @@ mongoose
         // passport initialize - checks if session contains a passport.user object
         app.use(passport.initialize());
         // routes
-        app.use('/', require('./routes/index'));
+        app.use('/', require('./routes'));
         app.emit('ready');
     })
     .catch(err => {

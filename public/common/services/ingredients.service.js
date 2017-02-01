@@ -52,7 +52,7 @@ angular.module("owmApp")
         this.orderIngredients = function (data) {
             $http({
                 method: 'POST',
-                url: '/orderIngredients',
+                url: '/order',
                 data: $httpParamSerializerJQLike(data),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             })
@@ -76,7 +76,7 @@ angular.module("owmApp")
         this.emailIngredients = function (recipient, emailBody) {
             $http({
                 method: 'POST',
-                url: '/emailIngredientList',
+                url: '/email',
                 data: $httpParamSerializerJQLike({ to: recipient, emailBody: emailBody }),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).then(function (response) {

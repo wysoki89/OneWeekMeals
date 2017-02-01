@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server/www.js",
+    "dev": "gulp dev",
     "test": "NODE_ENV=test PORT=3100 gulp mocha",
     "tdd": "NODE_ENV=test PORT=3100 gulp mocha:tdd"
   },
@@ -41,9 +41,14 @@
     "fs": "0.0.1-security",
     "graceful": "^1.0.1",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
     "gulp-mocha": "^3.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1",
     "gulp-util": "^3.0.8",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",

@@ -5,6 +5,6 @@ function navigation() {
         restrict: 'E',
         templateUrl: '/common/directives/navigation/navigation.view.html',
         controller: 'navigationCtrl',
-        controllerAs: 'navvm'
+        controllerAs: 'vm'
     };
 }

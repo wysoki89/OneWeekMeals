@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/css/style.css">
-    <link rel="stylesheet" href="bower_components/angular-datepicker.min.css">
+    <!--<link rel="stylesheet" href="bower_components/angular-datepicker.min.css">-->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <!--external-->
@@ -15,32 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
-    <script src="bower_components/angular-datepicker.min.js"></script>
-    <script src="bower_components/moment.min.js"></script>
+    <!--<script src="bower_components/angular-datepicker.min.js"></script>
+    <script src="bower_components/moment.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
-    <!--controllers-->
-    <script src="main.js"></script>
-    <script src="recipes/recipeList.controller.js"></script>
-    <script src="checkout/checkout.controller.js"></script>
-    <script src="ingredients/ingredients.controller.js"></script>
-    <script src="auth/login/login.controller.js"></script>
-    <script src="auth/register/register.controller.js"></script>
-    <script src="common/directives/navigation/navigation.controller.js"></script>
-    <!--filters-->
-    <script src="common/filters/customFilters.js"></script>
-    <!--directives-->
-    <script src="cart/cart.directive.js"></script>
-    <script src="common/directives/navigation/navigation.directive.js"></script>
-    <script src="recipes/recipe.directive.js"></script>
-    <!--services-->
-    <script src="common/services/authentication.service.js"></script>
-    <script src="common/services/recipe.service.js"></script>
-    <script src="common/services/ingredients.service.js"></script>
-    <script src="common/services/cart.service.js"></script>
+    <script src="dist/scripts/scripts.js"></script>
 </head>
 <body ng-controller="recipeListCtrl">
     <div class="alert alert-danger" ng-show="model.error">

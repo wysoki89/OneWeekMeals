@@ -5,7 +5,7 @@ const co = require('co');
 // model
 const mongoose = require('mongoose');
 
-const Order = mongoose.model('orders');
+const Order = mongoose.model('order'); 
  
 router
     .post('/', co.wrap(function* (req, res, next) {
